@@ -1,2 +1,2 @@
 # health-and-habit
- Data Analysis to track health and help build habits
+Group sourced Data Analytics to determine which habits help you achieve your goal
