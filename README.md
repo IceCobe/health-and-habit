@@ -1,2 +1,2 @@
 # health-and-habit
-Group sourced Data Analytics to determine which habits help you achieve your goal
+Individual & group sourced Data Analytics to determine which habits help you achieve your goal
