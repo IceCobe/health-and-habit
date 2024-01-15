@@ -1,10 +1,10 @@
 import React from 'react';
-import Dashboard from './dashboard/Dashboard'; // Update the path accordingly
+import GoalSelectionTable from './interfaces/goalSelection';
 
 function App() {
   return (
     <div className="App">
-      <Dashboard />
+      <GoalSelectionTable />
     </div>
   );
 }
