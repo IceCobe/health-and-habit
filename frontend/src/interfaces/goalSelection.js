@@ -5,19 +5,24 @@ function GoalSelectionTable() {
   const [goals, setGoals] = useState([]);
 
   useEffect(() => {
+    // Replace with your actual API URL
     fetch('http://localhost:8000/api/goals/')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => setGoals(data))
-      .catch(error => console.error('Error fetching data: ', error));
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer 
+      component={Paper} 
+      sx={{
+        margin: 'auto', // Centers the table
+        marginTop: 2, // Adds margin to the top (using theme spacing)
+        maxWidth: '80%', // Limits the width of the table
+        padding: 2, // Adds padding inside the container (using theme spacing)
+        boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', // Box shadow for styling
+      }}
+    >
       <Table aria-label="goals table">
         <TableHead>
           <TableRow>
