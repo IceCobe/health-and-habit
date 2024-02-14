@@ -80,27 +80,13 @@ function GoalSelectionTable() {
               </TableCell>
               <TableCell>
                 {/* Action Buttons */}
-                <Button 
-                  variant="contained" 
-                  color="primary" 
-                  onClick={() => handleSelectGoal(goal.id)}
-                  sx={{ marginRight: 1 }}
-                >
+                <Button variant="contained" color="primary" onClick={() => handleSelectGoal(goal.id)}sx={{ marginRight: 1 }}>
                   Select Goal
                 </Button>
-                <Button 
-                  variant="contained" 
-                  color="secondary" 
-                  onClick={() => handleEditGoalName(goal.id)}
-                  sx={{ marginRight: 1 }}
-                >
+                <Button variant="contained" color="secondary" onClick={() => handleEditGoalName(goal.id)}sx={{ marginRight: 1 }}>
                   Edit Goal Name
                 </Button>
-                <Button 
-                  variant="contained" 
-                  color="error" 
-                  onClick={() => handleDeleteGoal(goal.id)}
-                >
+                <Button variant="contained" color="error" onClick={() => handleDeleteGoal(goal.id)}>
                   Delete Goal
                 </Button>
               </TableCell>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CircularProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Button, Box } from '@mui/material';
+import { CircularProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Button } from '@mui/material';
 import { useParams } from 'react-router-dom';
 
 function GoalPage() {
@@ -30,21 +30,21 @@ function GoalPage() {
   }
 
   return (
-    <TableContainer 
-      component={Paper} 
+    <TableContainer
+      component={Paper}
       sx={{
         margin: 'auto',
         marginTop: 2,
         maxWidth: '80%',
         padding: 2,
-        boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+        boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)'
       }}
     >
       <Table aria-label="user habits table">
         <TableHead>
           <TableRow>
             <TableCell><Typography variant="h6">Goal Name</Typography></TableCell>
-            <TableCell><Typography variant="h6">Actions</Typography></TableCell> {/* Optional if you want actions */}
+            <TableCell><Typography variant="h6">Actions</Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -52,13 +52,8 @@ function GoalPage() {
             <TableRow key={userHabit.id} hover>
               <TableCell>{userHabit.goal.name}</TableCell>
               <TableCell>
-                {/* Example actions, adjust according to your needs */}
-                <Button variant="contained" color="primary" sx={{ marginRight: 1 }}>
-                  Update
-                </Button>
-                <Button variant="contained" color="error">
-                  Delete
-                </Button>
+                <Button variant="contained" color="primary" sx={{ marginRight: 1 }}>Update</Button>
+                <Button variant="contained" color="error">Delete</Button>
               </TableCell>
             </TableRow>
           ))}
