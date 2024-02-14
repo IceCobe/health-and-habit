@@ -12,11 +12,16 @@ class HabitSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class UserHabitSerializer(serializers.ModelSerializer):
+    goal = GoalSerializer(read_only=True)
+    habit = HabitSerializer(read_only=True)
+
     class Meta:
         model = UserHabit
-        fields = '__all__'
+        fields = ['id', 'user', 'goal', 'habit']
 
 class HabitCompletionSerializer(serializers.ModelSerializer):
+    user_habit = UserHabitSerializer(read_only=True)
+
     class Meta:
         model = HabitCompletion
         fields = '__all__'
