@@ -154,7 +154,7 @@ function GoalPage() {
         <Table aria-label="user habits table">
           <TableHead>
             <TableRow>
-              <TableCell><Typography variant="h6">Goal Name</Typography></TableCell>
+              <TableCell><Typography variant="h6">Habit Name</Typography></TableCell>
               <TableCell><Typography variant="h6">Completion</Typography></TableCell>
               <TableCell><Typography variant="h6">Actions</Typography></TableCell>
             </TableRow>
@@ -162,7 +162,7 @@ function GoalPage() {
           <TableBody>
             {userHabits.map((userHabit) => (
               <TableRow key={userHabit.id} hover>
-                <TableCell>{userHabit.goal.name}</TableCell>
+                <TableCell>{userHabit.habit.name}</TableCell>
                 <TableCell>
                   {userHabit.completions && (
                     <WeekdayCheckboxes
