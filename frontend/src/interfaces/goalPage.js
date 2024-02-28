@@ -95,17 +95,20 @@ function GoalPage() {
   
     useEffect(() => {
       setIsLoading(true);
-      fetch(`http://localhost:8000/api/userhabits/?goal=${goalId}`)
+      fetch(`http://localhost:8000/api/userhabits/`)
         .then(response => response.json())
         .then(data => {
-          setUserHabits(data);
+          // Filter the data to only include habits that match the current goalId
+          const filteredData = data.filter(habit => habit.goal.id == goalId);
+          setUserHabits(filteredData);
           setIsLoading(false);
         })
         .catch(error => {
           console.error('Error fetching data:', error);
           setIsLoading(false);
         });
-    }, [goalId]);
+    }, [goalId]); // Depend on goalId to re-run the effect when it changes
+    
   
     useEffect(() => {
       if (userHabits.length > 0) {
