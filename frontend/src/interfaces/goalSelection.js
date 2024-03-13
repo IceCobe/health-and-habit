@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { CircularProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Button, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function GoalSelectionTable() {
   const [goals, setGoals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
@@ -20,8 +22,7 @@ function GoalSelectionTable() {
   }, []);
 
   const handleSelectGoal = (id) => {
-    console.log(`Selecting goal with ID: ${id}`);
-    // Implement the selection logic here
+    navigate(`/goal/${id}`); // Navigate to the goal page
   };
 
   const handleEditGoalName = (id) => {
@@ -56,7 +57,6 @@ function GoalSelectionTable() {
       <Table aria-label="goals table">
         <TableHead>
           <TableRow>
-            <TableCell><Typography variant="h6">Goal ID</Typography></TableCell>
             <TableCell><Typography variant="h6">Goal Name</Typography></TableCell>
             <TableCell><Typography variant="h6">Status</Typography></TableCell>
             <TableCell><Typography variant="h6">Actions</Typography></TableCell>
@@ -65,7 +65,6 @@ function GoalSelectionTable() {
         <TableBody>
           {goals.map((goal) => (
             <TableRow key={goal.id} hover>
-              <TableCell>{goal.id}</TableCell>
               <TableCell>{goal.name}</TableCell>
               <TableCell>
                 {/* Boxes for each status timeframe */}
@@ -81,27 +80,13 @@ function GoalSelectionTable() {
               </TableCell>
               <TableCell>
                 {/* Action Buttons */}
-                <Button 
-                  variant="contained" 
-                  color="primary" 
-                  onClick={() => handleSelectGoal(goal.id)}
-                  sx={{ marginRight: 1 }}
-                >
+                <Button variant="contained" color="primary" onClick={() => handleSelectGoal(goal.id)}sx={{ marginRight: 1 }}>
                   Select Goal
                 </Button>
-                <Button 
-                  variant="contained" 
-                  color="secondary" 
-                  onClick={() => handleEditGoalName(goal.id)}
-                  sx={{ marginRight: 1 }}
-                >
+                <Button variant="contained" color="secondary" onClick={() => handleEditGoalName(goal.id)}sx={{ marginRight: 1 }}>
                   Edit Goal Name
                 </Button>
-                <Button 
-                  variant="contained" 
-                  color="error" 
-                  onClick={() => handleDeleteGoal(goal.id)}
-                >
+                <Button variant="contained" color="error" onClick={() => handleDeleteGoal(goal.id)}>
                   Delete Goal
                 </Button>
               </TableCell>

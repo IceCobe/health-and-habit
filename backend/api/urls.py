@@ -1,13 +1,15 @@
 from django.urls import path, include
+from .views import HabitCompletionUpsertView, GoalViewSet, HabitViewSet, UserHabitViewSet, HabitCompletionViewSet
 from rest_framework.routers import DefaultRouter
-from .views import GoalViewSet, HabitViewSet, UserHabitViewSet, HabitCompletionViewSet
 
+# Assuming you're using a router for viewsets
 router = DefaultRouter()
 router.register(r'goals', GoalViewSet)
 router.register(r'habits', HabitViewSet)
-router.register(r'userhabit', UserHabitViewSet)
-router.register(r'habitcompletion', HabitCompletionViewSet)
+router.register(r'userhabits', UserHabitViewSet)
+router.register(r'habitcompletions', HabitCompletionViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('habitcompletions-upsert/', HabitCompletionUpsertView.as_view(), name='habitcompletion-upsert'),
 ]
