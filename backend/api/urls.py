@@ -11,5 +11,5 @@ router.register(r'habitcompletions', HabitCompletionViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('habitcompletionsupsert/', HabitCompletionUpsertView.as_view(), name='habitcompletion-upsert'),
+    path('habitcompletions-upsert/', HabitCompletionUpsertView.as_view(), name='habitcompletion-upsert'),
 ]
