@@ -35,6 +35,12 @@ function GoalSelectionTable() {
     // Implement the deletion logic here, such as showing a confirmation dialog
   };
 
+  const handleAddNewGoal = () => {
+    console.log('Adding a new goal');
+    // Implement the logic to add a new goal
+    // This could navigate to a new page, open a modal, etc.
+  };
+
   if (isLoading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -92,6 +98,13 @@ function GoalSelectionTable() {
               </TableCell>
             </TableRow>
           ))}
+          <TableRow hover onClick={handleAddNewGoal}>
+            <TableCell colSpan={3} style={{ textAlign: 'left' }}>
+              <Typography variant="button" display="block" style={{ padding: '0px' }}>
+                + Add New Goal
+              </Typography>
+            </TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
